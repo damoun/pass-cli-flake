@@ -16,7 +16,7 @@ jobs:
         with:
           ref: ${{ github.head_ref }}
           persist-credentials: false
-      - uses: cachix/install-nix-action@91bb993797380ca23835f11887e45e54d6837078 # v27
+      - uses: cachix/install-nix-action@ba0dd844c9180cbf77aa72a116d6fbc515d0e87b # v27
       - name: Run update script
         run: ./update.sh
       - name: Commit changes
