@@ -26,11 +26,15 @@ stdenv.mkDerivation {
 
   src = fetchurl {
     url = source.url;
-    hash = "sha256-${source.hash}";
+    sha256 = source.hash;
   };
 
   nativeBuildInputs = lib.optionals stdenv.isLinux [
     autoPatchelfHook
+  ];
+
+  buildInputs = lib.optionals stdenv.isLinux [
+    stdenv.cc.cc.lib
   ];
 
   # The source is a single pre-compiled binary

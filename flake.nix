@@ -17,7 +17,7 @@
         apps.update = {
           type = "app";
           program = toString (pkgs.writeShellScript "update-pass-cli" ''
-            PATH="${lib.makeBinPath [ pkgs.curl pkgs.jq pkgs.check-jsonschema pkgs.nix ]}:$PATH"
+            PATH="${pkgs.lib.makeBinPath [ pkgs.curl pkgs.jq pkgs.check-jsonschema pkgs.nix ]}:$PATH"
             ${./update.sh}
           '');
         };
