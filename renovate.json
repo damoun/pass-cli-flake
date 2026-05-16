@@ -1,0 +1,13 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:recommended"],
+  "customManagers": [
+    {
+      "customType": "regex",
+      "fileMatch": ["^\\.version$"],
+      "matchStrings": ["(?<currentValue>.*)"],
+      "depNameTemplate": "protonpass/pass-cli",
+      "datasourceTemplate": "github-tags"
+    }
+  ]
+}

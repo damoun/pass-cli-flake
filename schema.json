@@ -1,0 +1,36 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": ["formatVersion", "passCliVersions"],
+  "properties": {
+    "formatVersion": { "type": "integer" },
+    "passCliVersions": {
+      "type": "object",
+      "required": ["version", "urls"],
+      "properties": {
+        "version": { "type": "string" },
+        "urls": {
+          "type": "object",
+          "properties": {
+            "macos": { "$ref": "#/definitions/platform" },
+            "linux": { "$ref": "#/definitions/platform" },
+            "windows": { "$ref": "#/definitions/platform" }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "platform": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["url", "hash"],
+        "properties": {
+          "url": { "type": "string", "format": "uri" },
+          "hash": { "type": "string", "pattern": "^[a-f0-9]{64}$" }
+        }
+      }
+    }
+  }
+}

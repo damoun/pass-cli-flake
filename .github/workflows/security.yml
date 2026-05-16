@@ -1,0 +1,15 @@
+name: Security
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  security:
+    uses: damoun/.github/.github/workflows/security.yml@abe769712d985709841fa28c489346e34f1a6e9f # main
+    permissions:
+      contents: read
+      security-events: write
