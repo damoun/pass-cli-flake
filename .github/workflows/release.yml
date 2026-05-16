@@ -21,8 +21,9 @@ jobs:
         run: echo "version=$(cat .version)" >> $GITHUB_OUTPUT
       - name: Create Release
         run: |
-          gh release create "v${{ steps.get_version.outputs.version }}" \
-            --title "Release v${{ steps.get_version.outputs.version }}" \
+          gh release create "v$VERSION" \
+            --title "Release v$VERSION" \
             --generate-notes
         env:
           GH_TOKEN: ${{ github.token }}
+          VERSION: ${{ steps.get_version.outputs.version }}
