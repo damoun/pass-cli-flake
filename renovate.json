@@ -6,7 +6,9 @@
   "customManagers": [
     {
       "customType": "regex",
-      "fileMatch": ["^\\.version$"],
+      "managerFilePatterns": [
+        "/^\\.version$/"
+      ],
       "matchStrings": ["^(?<currentValue>\\S+)\\s*$"],
       "depNameTemplate": "protonpass/pass-cli",
       "datasourceTemplate": "github-tags"
