@@ -7,7 +7,7 @@
     {
       "customType": "regex",
       "fileMatch": ["^\\.version$"],
-      "matchStrings": ["(?<currentValue>.*)"],
+      "matchStrings": ["^(?<currentValue>\\S+)\\s*$"],
       "depNameTemplate": "protonpass/pass-cli",
       "datasourceTemplate": "github-tags"
     }
