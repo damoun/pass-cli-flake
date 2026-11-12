@@ -13,5 +13,11 @@
       "depNameTemplate": "protonpass/pass-cli",
       "datasourceTemplate": "github-tags"
     }
+  ],
+  "packageRules": [
+    {
+      "matchPackageNames": ["protonpass/pass-cli"],
+      "minimumReleaseAge": null
+    }
   ]
 }

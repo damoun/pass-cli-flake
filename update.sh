@@ -15,5 +15,12 @@ curl -sSL "$URL" -o "$TEMP_FILE"
 echo "Validating schema..."
 nix run nixpkgs#check-jsonschema -- --schemafile schema.json "$TEMP_FILE"
 
+EXPECTED=$(cat .version)
+ACTUAL=$(jq -r .passCliVersions.version "$TEMP_FILE")
+if [[ "$ACTUAL" != "$EXPECTED" ]]; then
+  echo "Proton serves $ACTUAL, .version is $EXPECTED" >&2
+  exit 1
+fi
+
 mv "$TEMP_FILE" versions.json
 echo "Successfully updated versions.json"
